@@ -8,8 +8,6 @@
         <link href="./index.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
-
-		<hr>
 		<h1>Welcome</h1>
 		<p>
 			This is my submission for my CSCI 5611 class's Project 2.
@@ -39,17 +37,17 @@
 		<h2>Explanation of Files</h2>
 		<p>
 			All the code for the cloth simulation is stored in the directory: clothsimulation.
-			This directory contains the file cloth_simulation.js which contains the code running the threejs scene and environment, and it can be thought of as the main script for the simulation. 
+			This directory contains the file cloth_simulation.js which contains the code running the ThreeJS scene and environment, and it can be thought of as the main script for the simulation. 
 			This directory also contains the file cloth.js which contains the Cloth class which handles both the representation of the cloth's nodes and all physics calculation code.
-			The person.js file contains the Person class, which is a user controled object that acts as a person in the scene.
+			The person.js file contains the Person class, which is a user controlled object that acts as a person in the scene.
 		</p>
 		<p>
 			All the code for the fluid simulation is stored in the directory: water_simulation.
-			The fluid_simulation.js file contains the code running the threejs scene and environment, and it can be thought of as the main script for the simulation.
-			The faucet.js file contains the Faucet class representing the faucet in the threejs scene where water is coming out of.
+			The fluid_simulation.js file contains the code running the ThreeJS scene and environment, and it can be thought of as the main script for the simulation.
+			The faucet.js file contains the Faucet class representing the faucet in the ThreeJS scene where water is coming out of.
 			The sph_water.js file contains the SPHWater class which represents the array of particles in the sph water system, and it contains all the physics calculation code of the system. 
 			The particle.js file contains the class representing a particle.
-			The shallow_water.js file contains the ShallowWater class which was a failed attempt at trying to implement the shallow water equation in threejs.
+			The shallow_water.js file contains the ShallowWater class which was a failed attempt at trying to implement the shallow water equation in ThreeJS.
 		</p>
 		<p>	
 		<br />
@@ -84,7 +82,10 @@
 					</i>
 				</p>
 				<p>
-					dnskflnsdkl
+					The curtains in the cloth simulation emulate cloth flowing.
+					The person in the scene acts as an obstacle, and the cloth reacts to collisions with the person.
+					Internally the cloth is stored as a 2D array of nodes that all act upon each other by way of Hooke's law.
+					The nodes represent multiple ropes all connected together both horizontally and vertically. 
 				</p>
 			</li>
 			<li>
@@ -101,7 +102,7 @@
 					</i>
 				</p>
 				<p>
-					dnskflnsdkl
+					<b>See feature above.</b>
 				</p>
 			</li>
 			<li>
@@ -114,7 +115,8 @@
 					</i>
 				</p>
 				<p>
-					dnskflnsdkl
+					ThreeJS was used to render the cloth in 3D.
+					The Orbital camera controls were used to allow the user to interact with the camera in the scene naturally.
 				</p>
 			</li>
 			<li>
@@ -127,7 +129,11 @@
 					</i>
 				</p>
 				<p>
-					dnskflnsdkl
+					Both the cloth simulation and water simulation are rendered in 3D with lighting.
+					The floor in the cloth scene has a wood texturing to look like a stage with the cloth acting as stage curtains.
+					Additionally, in the cloth scene I have added a spotlight to reinforce the idea of a stage scene.
+					Toon shading was used in the cloth scene as it gave the scene a more interesting look.
+					In the water simulation scene, Phong shading was used on the faucet to give it a metallic look.
 				</p>
 			</li>
 			<li>
@@ -145,7 +151,9 @@
 					</i>
 				</p>
 				<p>
-					dnskflnsdkl
+					In each simulation the user is able to edit the settings for a simulation and rerun it.
+					Additionally, in the cloth scene, the user is able to control and object with their keyboard.
+					This object moves around in the scene, and the cloth is able to collide with it.
 				</p>
 			</li>
 			<li>
@@ -162,7 +170,10 @@
 					</i>
 				</p>
 				<p>
-
+					I created a 3D SPH-based water simulation by using blue spheres to represent the particles of the water.
+					I tried to tune it so that it looked the most like water.
+					Additionally, I allowed for customizable settings so that the user may edit the simulation to experiment.
+					The larger context of the simulation is that the water is flowing out of a faucet in a sink.
 				</p>
 			</li>
 		</ul>
@@ -174,7 +185,7 @@
 		<hr>
 		<h2> List of Tools/Libraries Used </h2>
 		<p>
-			I thought it'd be cool to have a working simulation all within the browser so that it can be easily accesible for anyone to view and play with.
+			I thought it'd be cool to have a working simulation all within the browser so that it can be easily accessible for anyone to view and play with.
 			Therefore, I chose to do project 2 using ThreeJS.
 			<ul>
 				<li>
@@ -203,31 +214,51 @@
 				</li>
 				<li>
 					<p>
-						Additionally, I used some textures from: https://assetstore.unity.com/packages/2d/textures-materials/free-stylized-pbr-textures-pack-111778.
+						Additionally, I used some textures from: <a href="https://assetstore.unity.com/packages/2d/textures-materials/free-stylized-pbr-textures-pack-111778">https://assetstore.unity.com/packages/2d/textures-materials/free-stylized-pbr-textures-pack-111778</a>.
 					</p>
 				</li>
 			</ul>
 		</p>
 		<hr>
 		<h2> Difficulties During Development </h2>
+		<h3>Cloth Simulation Difficulties</h3>
 		<p>
-			Cloth simulation difficulties
-
+			When developing the cloth simulation, I was running into various issues with how to store and work with the node data.
+			I eventually decided to use a 2D array, since it was easier to conceptualize how the nodes can be thought of as a grid.
+			This is admittedly not the most efficient approach, but it worked well enough for the scene I was imagining.
+			Also, I ran into some issues converting some of my processing code to ThreeJS, since in processing moving positively in the y direction means going down the screen.
+			In ThreeJS, it was the opposite for my approach, and therefore, I was getting a bit confused on how to iterate through all the nodes.
+			Lastly, I was running into issues related to making the collisions between the user-controlled person and the cloth.
+			It seems like when the cloth nodes have velocity, they bounce off the object as expected, but they do not realistically gain velocity based on the velocity of the person.
+			I think it works well enough for the purposes of this simulation, but there could definitely be improvement.
 		</p>
+		<h3>Water Simulation Difficulties</h3>
 		<p>
-			water sim difficulties
 			Initially, I had chosen to attempt a continuum, PDE approach to fluid simulation based on the shallow water equation, but I was unable to get that working.
 			The code for this is in the file shallow_water.js at the file location ./water_simulation/shallow_water.js in the github repo.
-
+			I was having trouble with the implementation moving too slow and not behaving as expected.
+			After spending some time on it, I decided it might be a better use of my limited time to try to implement SPH fluid instead.
+			This ended up being a good choice as I was able to implement SPH properly.
+			The main difficulties I had with SPH was tuning all of the parameters to look like realistic water.
+			I believe the end result looks pretty good, but might look a bit more viscous than actual water.
+			Also, I had experimented with allowing for more user reaction to this simulation, but the results did not look great.
+			I ended up deciding to scrap the idea in favor for the ability to lift up the water by hold the up arrow key button.
 		</p>
+		<h3>Ideas For Future Work</h3>
 		<p>
 			Lastly, there were many different features ideas I wanted to implemented, but I did not get to in time.
-			These included adding ripping/tearing of cloth, air drag, and better models and textures to create more interesting scenes.
+			These included adding ripping/tearing of cloth, and air drag.
+			Additionally, if I had more time I would use better models and textures to create more interesting scenes.
+			This is especially the case with the water simulation as the scene looks a bit rudimentary and blocky with the current implementation.
 		</p>
 		<hr>
-		<h2> Video Showcasing Simulation </h2>
+		<h2> Video Showcasing Cloth Simulation </h2>
 		<video width="800" height="450" controls>
-			<source src="#" type="video/mp4">
+			<source src="./clothvid.mp4" type="video/mp4">
+		</video>
+		<h2> Video Showcasing Water Simulation </h2>
+		<video width="800" height="450" controls>
+			<source src="./watervid.mp4" type="video/mp4">
 		</video>
 		<footer class="mt-auto py-3 text-center text-lg-start">
             <!-- Copyright -->
