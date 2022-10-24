@@ -156,6 +156,13 @@ function setupThreejs() {
     floorGeometry = new THREE.BoxGeometry(30, 2, 25);
     floorMaterial = new THREE.MeshToonMaterial({color: "rgb(150, 75, 0)"});
 
+    // load floor texture
+    const texture = new THREE.TextureLoader().load('./Wood_Planks_B_Basecolor.png');
+    texture.wrapS = THREE.RepeatWrapping;
+    texture.wrapT = THREE.RepeatWrapping;
+    texture.repeat.set( 4, 4 );
+    floorMaterial.map = texture;
+
     floorMesh = new THREE.Mesh(floorGeometry, floorMaterial);
     floorMesh.receiveShadow = true;
     floorMesh.position.set(0,-1,0);
