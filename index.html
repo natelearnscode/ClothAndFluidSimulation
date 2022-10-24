@@ -8,13 +8,6 @@
         <link href="./index.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
-		<dv id="cloth">
-			<a href="./clothsimulation/cloth.html">Click Here to Go to Live Cloth Simulation Demo</a>
-		</dv>
-		<br />
-		<dv id="water">
-			<a href="./water_simulation/water.html">Click Here to Go to Live Fluid Simulation Demo</a>
-		</dv>
 
 		<hr>
 		<h1>Welcome</h1>
@@ -22,14 +15,33 @@
 			This is my submission for my CSCI 5611 class's Project 2.
 			My name is Nate Meshesha, and I did not have a partner for this project.
 			The intended goal was to implement both a cloth simulation based upon the idea of connected spring forces(Hooke's law) and one other challenge simulation.
+			The cloth simulation is a scene representing a stage where the cloth is the curtains, and there is a user controlled person on top of the stage.
 			The other type of simulation I chose to focus on was a water simulation, and the specific type of water simulation I chose to do was SPH Fluid.
-			Above you can click on either link to see and interact with a live demo of the working code for either simulation.</p>
+			The water simulation is a scene representing water flowing out of a sink.
+			Below you can click on either link to see and interact with a live demo of the working code for either simulation.</p>
+		<hr>
+		<p>
+			<dv id="cloth">
+				<img src="./clothsim_img.png" width="800px" height="450px"/>
+				<br />
+				<a href="./clothsimulation/cloth.html">Click Here to Go to Live Cloth Simulation Demo</a>
+			</dv>
+		</p>
+		<hr>
+		<p>
+			<dv id="water">
+				<img src="./watersim_img.png" width="800px" height="450px"/>
+				<br />
+				<a href="./water_simulation/water.html">Click Here to Go to Live Fluid Simulation Demo</a>
+			</dv>
+		</p>
 		<hr>
 		<h2>Explanation of Files</h2>
 		<p>
 			All the code for the cloth simulation is stored in the directory: clothsimulation.
 			This directory contains the file cloth_simulation.js which contains the code running the threejs scene and environment, and it can be thought of as the main script for the simulation. 
-			This directory also contains the file cloth.js which contains the Cloth class which handles both the representation of the cloth and all physics calculation code.
+			This directory also contains the file cloth.js which contains the Cloth class which handles both the representation of the cloth's nodes and all physics calculation code.
+			The person.js file contains the Person class, which is a user controled object that acts as a person in the scene.
 		</p>
 		<p>
 			All the code for the fluid simulation is stored in the directory: water_simulation.
