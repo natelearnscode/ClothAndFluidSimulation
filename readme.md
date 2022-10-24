@@ -1,5 +1,5 @@
 # Welcome
-This is a simulation of cloth and fluid using ThreeJS. The live demo of code can be viewed at https://natelearnscode.github.io/{tbd} 
+This is a simulation of cloth and fluid using ThreeJS. The live demo of code can be viewed at https://natelearnscode.github.io/ClothAndFluidSimulation/
 
 # To Run Locally
 You need to have npm installed. 
