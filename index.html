@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8" />
+        <title>Cloth and Fluid Simulation</title>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+        <link href="./index.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		<dv id="cloth">
+			<a href="./clothsimulation/cloth.html">Click Here to Go to Live Cloth Simulation Demo</a>
+		</dv>
+		<br />
+		<dv id="water">
+			<a href="./water_simulation/water.html">Click Here to Go to Live Fluid Simulation Demo</a>
+		</dv>
+
+		<hr>
+		<h1>Welcome</h1>
+		<p>
+			This is my submission for my CSCI 5611 class's Project 2.
+			My name is Nate Meshesha, and I did not have a partner for this project.
+			The intended goal was to implement both a cloth simulation based upon the idea of connected spring forces(Hooke's law) and one other challenge simulation.
+			The other type of simulation I chose to focus on was a water simulation, and the specific type of water simulation I chose to do was SPH Fluid.
+			Above you can click on either link to see and interact with a live demo of the working code for either simulation.</p>
+		<hr>
+		<h2>Explanation of Files</h2>
+		<p>
+			All the code for the cloth simulation is stored in the directory: clothsimulation.
+			This directory contains the file cloth_simulation.js which contains the code running the threejs scene and environment, and it can be thought of as the main script for the simulation. 
+			This directory also contains the file cloth.js which contains the Cloth class which handles both the representation of the cloth and all physics calculation code.
+		</p>
+		<p>
+			All the code for the fluid simulation is stored in the directory: water_simulation.
+			The fluid_simulation.js file contains the code running the threejs scene and environment, and it can be thought of as the main script for the simulation.
+			The faucet.js file contains the Faucet class representing the faucet in the threejs scene where water is coming out of.
+			The sph_water.js file contains the SPHWater class which represents the array of particles in the sph water system, and it contains all the physics calculation code of the system. 
+			The particle.js file contains the class representing a particle.
+			The shallow_water.js file contains the ShallowWater class which was a failed attempt at trying to implement the shallow water equation in threejs.
+		</p>
+		<p>	
+		<br />
+			The external library files I used are: three.module.js, OrbitalControls.js, stats.js, and dat.gui.module.js. 
+		</p>
+
+		<h2>Running Locally/Explanation of Files</h2>
+		<p>
+			If you want to run the code locally there are a few dependencies needed:
+			<ul>
+				<li>NPM (node package manager used to install dependencies)</li>
+				<li>NPX (used to run server and usually comes install with NPM I believe)</li>
+				<li>http-server (an NPM package used to serve the static files containing the app)</li>
+			</ul>
+			After installing npm you can run <b>"npm install http-server"</b> to install the http-server package.
+			Then by running the command <b>"npx http-server"</b> it should start a simple http server.
+			After doing this you should be able to go to http://127.0.0.1:8080 to view the application.
+		</p>
+		<hr>
+		<h2> Features Implemented </h2>
+		<ul>
+			<li>
+				<h3>Multiple Ropes</h3>
+				<p>
+						<b>Feature Description: </b>
+					<i>	Extend the rope implementation shown in class to support multiple independent 
+						ropes which all hang and swing freely. The ropes need to support one-way 
+						interaction with an obstacle (e.g., a circle) by falling naturally on the obstacle. To get 
+						all of these points, your implementation must produce smooth, natural looking 
+						swinging behavior. Getting this nice behavior will require tuning your simulation 
+						parameters, please save time for this step!
+					</i>
+				</p>
+				<p>
+					dnskflnsdkl
+				</p>
+			</li>
+			<li>
+				<h3>Cloth Simulation</h3>
+				<p>
+						<b>Feature Description: </b>
+					<i>	Extend your rope simulation to include horizontal springs that bind ropes to each 
+						other in order to make a full cloth simulation. The cloth needs to support one-way 
+						interaction with an obstacle (e.g., a ball) by falling naturally on the obstacle. To get 
+						all of these points, your implementation must produce smooth, natural looking 
+						swinging behavior. Getting this behavior will require tuning your simulation 
+						parameters, please save time for this step. [This will also count as multiple ropes, 
+						meaning cloth sim totals up to 65 points.] 
+					</i>
+				</p>
+				<p>
+					dnskflnsdkl
+				</p>
+			</li>
+			<li>
+				<h3>3D Simulation</h3>
+				<p>
+						<b>Feature Description: </b>
+					<i>	Update your ropes or cloth simulation to be in 3D. To get full points here you need a 
+						simulation with smooth 3D motion and a natural camera that allows the user to 
+						navigate around the scene from different angles and positions. 					 
+					</i>
+				</p>
+				<p>
+					dnskflnsdkl
+				</p>
+			</li>
+			<li>
+				<h3>High-quality Rendering</h3>
+				<p>
+						<b>Feature Description: </b>
+					<i>	Use a high-quality 3D rendering with a natural camera that allows the user to 
+						navigate around the scene from different angles and positions. For full credit, you 
+						must use texturing and 3D lighting to create a compelling rendering. 
+					</i>
+				</p>
+				<p>
+					dnskflnsdkl
+				</p>
+			</li>
+			<li>
+				<h3>User Interaction</h3>
+				<p>
+						<b>Feature Description: </b>
+					<i>	These points come from allowing the user to interact directly with the simulation 
+						itself (not from controlling the camera). To get full points, the user should have a 
+						clear, smooth, and natural way to interact with the ropes/cloth. Discrete 
+						interactions such as toggling some behavior on/off will only receive a couple of 
+						points. Look for continuous interaction such as allowing the user to move an 
+						obstacle with the mouse.   
+						[If you simulate additional systems (such as fluid or rigid bodies) you can implement 
+						the user interaction on those simulations instead.] 
+					</i>
+				</p>
+				<p>
+					dnskflnsdkl
+				</p>
+			</li>
+			<li>
+				<h3>Challenge - SPH Fluid Simulation : </h3>
+				<p>
+					<b>Feature Description: </b>
+					<i>
+						Using an SPH-based method, create a 2D water simulation. For full points, the fluid 
+						in the simulation should flow smoothly and execute in real-time. Your SPH 
+						simulation can be rendered as large points or spheres, rather than a continuous 
+						fluid surface. For full points, the simulation should be well tuned to move like fluid. 
+						Additionally, the fluid simulation should either be placed in some context, such as a 
+						larger scene or interact with other objects. 
+					</i>
+				</p>
+				<p>
+
+				</p>
+			</li>
+		</ul>
+		<hr>
+		<h2> Link to Code </h2>
+		<p>
+			The source code can be found <a href="#">Here.</a>
+		</p>
+		<hr>
+		<h2> List of Tools/Libraries Used </h2>
+		<p>
+			I thought it'd be cool to have a working simulation all within the browser so that it can be easily accesible for anyone to view and play with.
+			Therefore, I chose to do project 2 using ThreeJS.
+			<ul>
+				<li>
+					<h3>Rendering</h3>
+					<p>For rendering the 3D scene, the ThreeJS library was used. </p> 
+				</li>
+				<li>
+					<h3>GUI</h3>
+					<p>The Dat.GUI library was used to create the parameters GUI for editing the parameters of the simulation. </p> 
+				</li>
+				<li>
+					<h3>Performance Statistics</h3>
+					<p> To Calculate the frames per second and various other performance statistics, the Stats.Js library was used. These statistics can be scene in the top left of the screen. </p> 
+				</li>
+				<li>
+					<h3>Local Server for Development/Testing</h3>
+					<p>
+						In order to run and test ThreeJS locally, it needs to be served by an http server.
+						I chose to use NodeJS to both download the source code for the various libraries and create a simple http server to run the app locally.
+						Usually, you would want to use a module bundler like webpack to bundle the source code, but to simplify the development process, I made it so the app runs as is from the root directory.
+						I made some minor edits in the source code for the various libraries I used, and I then moved them to the root directory.
+						These include three.module.js, dat.gui.module.js, OrbitControls.js, and stats.js. 
+						To run the code locally, the http-server needs to be install first.
+						Then running npx http-server should start a server that serves all the files in the root directory.
+					</p>
+				</li>
+			</ul>
+		</p>
+		<hr>
+		<h2> Difficulties During Development </h2>
+		<p>
+			Cloth simulation difficulties
+
+		</p>
+		<p>
+			water sim difficulties
+			Initially, I had chosen to attempt a continuum, PDE approach to fluid simulation based on the shallow water equation, but I was unable to get that working.
+			The code for this is in the file shallow_water.js at the file location ./water_simulation/shallow_water.js in the github repo.
+
+		</p>
+		<p>
+			Lastly, there were many different features ideas I wanted to implemented, but I did not get to in time.
+			These included adding ripping/tearing of cloth, air drag, and better models and textures to create more interesting scenes.
+		</p>
+		<hr>
+		<h2> Video Showcasing Simulation </h2>
+		<video width="800" height="450" controls>
+			<source src="#" type="video/mp4">
+		</video>
+		<footer class="mt-auto py-3 text-center text-lg-start">
+            <!-- Copyright -->
+            <div class="text-center p-3">
+                Copyright © 2022 Nate Meshesha. All Rights Reserved
+            </div>
+            <!-- Copyright -->
+        </footer>
+	</body>
+</html>
